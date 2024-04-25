@@ -19,10 +19,10 @@ from time import time
 import json
 
 args = {
-    'checkpoint_path': "D:/new/Wav2Lip/checkpoints/wav2lip_gan.pth",
-    'face': "D:/new/sample_data/uploaded.mp4",
-    'audio': "D:/new/translated_audio/translated.wav",
-    'outfile': "D:/new/converted_videos/output.mp4",
+    'checkpoint_path': "/content/Wav2Lip/checkpoints/wav2lip_gan.pth",
+    'face': "/sample_data/uploaded.mp4",
+    'audio': "/content/translated.wav",
+    'outfile': "/content/output.mp4",
     'static': False,
     'fps': 25.,
     'pads': [0, 10, 0, 0],
