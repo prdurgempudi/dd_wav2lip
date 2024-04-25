@@ -57,7 +57,7 @@ def translate_text():
 @app.route('/upload_video', methods=['POST'])
 def upload_video():
     try:
-        media_folder = "D:/new/sample_data"
+        media_folder = "/sample_data"
         if not os.path.exists(media_folder):
             os.makedirs(media_folder)
         file = request.files['videoFile']
@@ -65,20 +65,20 @@ def upload_video():
         extension = pathlib.Path(filename).suffix
         filename = 'uploaded' + extension
         destination = "/".join([media_folder, filename])
-        video_duration = mp.VideoFileClip(destination).duration
-        if video_duration > 360:
-            print("WARNING: Video duration exceeds 60 seconds. Please upload a shorter video.")
-            raise SystemExit(0)
+        # video_duration = mp.VideoFileClip(destination).duration
+        # if video_duration > 360:
+        #     print("WARNING: Video duration exceeds 60 seconds. Please upload a shorter video.")
+        #     raise SystemExit(0)
 
-        video_resolution = get_video_resolution(destination)
-        print(f"Video resolution: {video_resolution}")
-        if video_resolution[0] >= 1920 or video_resolution[1] >= 1080:
-            print("Resizing video to 720p...")
-            os.system(f"ffmpeg -i {destination} -vf scale=1280:360 D:/new/sample_data/input_vid.mp4")
-            destination = "D:/new/sample_data/input_vid.mp4"
-            print("Video resized to 720p")
-        else:
-            print("No resizing needed")
+        # video_resolution = get_video_resolution(destination)
+        # print(f"Video resolution: {video_resolution}")
+        # if video_resolution[0] >= 1920 or video_resolution[1] >= 1080:
+        #     print("Resizing video to 720p...")
+        #     os.system(f"ffmpeg -i {destination} -vf scale=1280:360 D:/new/sample_data/input_vid.mp4")
+        #     destination = "D:/new/sample_data/input_vid.mp4"
+        #     print("Video resized to 720p")
+        # else:
+        #     print("No resizing needed")
         file.save(destination)
         return 'Video uploaded successfully'
     except Exception as e:
@@ -106,7 +106,7 @@ def generate_result():
 
 @app.route('/download_generated_video', methods=['GET'])
 def get_generated_video():
-    output_video_path ="D:/new/converted_videos/output.mp4" # Replace this with the actual path of the generated video
+    output_video_path ="/content/output.mp4" # Replace this with the actual path of the generated video
     try:
         return send_file(output_video_path, as_attachment=True)
     except:
