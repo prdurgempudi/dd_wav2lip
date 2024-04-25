@@ -3,14 +3,14 @@ import audio_extraction
 import audio_translation
 import inference
 
-CHECKPOINT_PATH = "D:/new/Wav2Lip/checkpoints/wav2lip_gan.pth" 
-FINAL_OUTPUT_DIRECTOR = "D:/new/converted_videos/output.mp4"
-OUTPUT_TRANSLATED_AUDIO_LOCATION = "D:/new/translated_audio/translated.wav"
-OUTPUT_AUDIO_FILE_LOCATION="D:/new/extracted_audio"
-DEFAULT_VIDEO_FILE ="D:/new/sample_data/uploaded.mp4"
+CHECKPOINT_PATH = "/content/Wav2Lip/checkpoints/wav2lip_gan.pth" 
+FINAL_OUTPUT_DIRECTOR = "/content/output.mp4"
+OUTPUT_TRANSLATED_AUDIO_LOCATION = "/content/translated.wav"
+OUTPUT_AUDIO_FILE_LOCATION="/content"
+DEFAULT_VIDEO_FILE ="/sample_data/uploaded.mp4"
 DEFAULT_VIDEO_FILE_NAME ="video"
 DEFAULT_LANGAUGE = "English"
-DEFAULT_IMAGE_FILE= "D:/new/sample_data/uploaded.jpg"
+DEFAULT_IMAGE_FILE= "/sample_data/uploaded.jpg"
 
 
 def convert_video(language,video_file=DEFAULT_VIDEO_FILE, output_audio_file_location=OUTPUT_AUDIO_FILE_LOCATION, output_translated_audio_location=OUTPUT_TRANSLATED_AUDIO_LOCATION, video_file_name=DEFAULT_VIDEO_FILE_NAME , final_output_directory=FINAL_OUTPUT_DIRECTOR):
